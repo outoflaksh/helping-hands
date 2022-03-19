@@ -9,8 +9,14 @@ body {
   width: 100%;
   min-height: 100vh;
   background: #dbfff5;
+  font-size: 18px;
 }
 
 li {
   display: inline-block;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
 }
