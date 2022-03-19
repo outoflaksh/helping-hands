@@ -12,6 +12,10 @@ body {
   font-size: 18px;
 }
 
+li {
+  list-style: none;
+}
+
 button {
   font: inherit;
 }
