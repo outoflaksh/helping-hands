@@ -1,16 +1,14 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import { BrowserRouter } from "react-router-dom";
+import Pages from "./pages/Pages";
 function App() {
-    return (
-        <div className="App">
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Home/>}/>
-                </Routes>
-            </BrowserRouter>
-        </div>
-    );
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Pages />
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
