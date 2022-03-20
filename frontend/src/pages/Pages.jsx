@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import AuthBase from "../components/AuthBase";
 import Home from "./Home";
 import Jobs from "./Jobs";
+import RegisterationForm from "../components/RegisterationForm";
 
 const Pages = () => {
   return (
@@ -11,7 +12,7 @@ const Pages = () => {
       <Route path="worker">
         <Route path="auth" element={<AuthBase>worker</AuthBase>}>
           <Route path="login" element={"hemlo"}></Route>
-          <Route path="register"></Route>
+          <Route path="register" element={<RegisterationForm/>}></Route>
         </Route>
       </Route>
       <Route path="client">
