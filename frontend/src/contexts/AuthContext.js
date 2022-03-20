@@ -18,7 +18,12 @@ export function AuthProvider({ children }) {
     function register(email, password) {
         return FireBaseAuth.createUserWithEmailAndPassword(email, password);
     }
-
+    function login(email,password){
+        return FireBaseAuth.signInWithEmailAndPassword(email,password);
+    }
+    function logout(){
+        return FireBaseAuth.signOut();
+    }
     useEffect(() => {
         const unsubscribe = FireBaseAuth.onAuthStateChanged(user => {
             setCurrentUser(user);
@@ -30,6 +35,8 @@ export function AuthProvider({ children }) {
     const value = {
         currentUser,
         register,
+        login,
+        logout,
     }
     return (
         <AuthContext.Provider value={value}>
