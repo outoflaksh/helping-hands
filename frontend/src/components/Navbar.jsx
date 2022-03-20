@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-
+import {Nav, NavItem} from "../styles/Nav.styled";
+import {Logo} from "../styles/logo.styled";
 const Navbar = () => {
   return (
     <Nav>
@@ -23,27 +24,5 @@ const Navbar = () => {
   );
 };
 
-const NavItem = styled.li`
-  margin: 10px;
-  padding: 10px;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #4d5d77;
-`;
-
-const Nav = styled.nav`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: #cbe4dd;
-`;
-
-const Logo = styled.div`
-  margin: 10px;
-  img {
-    height: 55px;
-    width: auto;
-  }
-`;
 
 export default Navbar;
