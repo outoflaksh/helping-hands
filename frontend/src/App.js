@@ -8,13 +8,13 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <AuthProvider>
-      <div className="App">
+      <>
         <BrowserRouter>
           <Navbar />
           <Pages />
-          <Footer/>
+          <Footer />
         </BrowserRouter>
-      </div>
+      </>
     </AuthProvider>
   );
 }

@@ -1,12 +1,12 @@
 import RegisterationForm from "../../components/RegisterationForm";
-import { FormContainer } from "../../styles/Form.styled";
+import { FormContainer } from "../../components/styles/Form.styled";
 import level from "../../utils/authLevel";
 function Registeration() {
-    return (
-        <FormContainer>
-            <RegisterationForm level={level.worker}/>
-        </FormContainer>
-    );
+  return (
+    <FormContainer>
+      <RegisterationForm level={level.worker} />
+    </FormContainer>
+  );
 }
 
 export default Registeration;

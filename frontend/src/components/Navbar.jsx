@@ -1,13 +1,12 @@
-import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import {Nav, NavItem} from "../styles/Nav.styled";
-import {Logo} from "../styles/logo.styled";
+import { Nav, NavItem, NavBrand } from "./styles/Nav.styled";
+
 const Navbar = () => {
   return (
     <Nav>
-      <Logo>
+      <NavBrand>
         <img src={"/logo.png"} alt="helping-hands-logo" />
-      </Logo>
+      </NavBrand>
       <NavItem>
         <NavLink to="/">Home</NavLink>
       </NavItem>
@@ -23,6 +22,5 @@ const Navbar = () => {
     </Nav>
   );
 };
-
 
 export default Navbar;
