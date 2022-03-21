@@ -4,6 +4,7 @@ import { FooterWrapper } from "./styles/Footer.styled.jsx";
 
 function Footer() {
   const { currentUser, logout } = useContext(AuthContext);
+  console.log(currentUser);
   const [loading, setLoading] = useState(false);
   async function handleLogOut() {
     setLoading(true);
