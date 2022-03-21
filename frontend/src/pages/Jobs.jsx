@@ -1,6 +1,5 @@
-import styled from "styled-components";
 import JobCard from "../components/JobCard";
-import { Wrapper } from "../components/Wrapper";
+import { Wrapper } from "../components/styles/Utility.styled";
 
 const jobs = [
   {
