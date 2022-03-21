@@ -1,7 +1,7 @@
-import { HeroContainer } from "../components/styles/Hero.styled";
+import Hero from "../components/Hero";
 
 function Home() {
-  return <HeroContainer></HeroContainer>;
+  return <Hero />;
 }
 
 export default Home;
