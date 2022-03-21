@@ -2,23 +2,29 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  background: #cbe4dd;
+
+  & > * {
+    margin: 0 25px;
+    padding: 10px 0;
+  }
+`;
+
+export const NavList = styled.ul`
+  list-style: none;
+  display: flex;
 `;
 
 export const NavItem = styled.li`
   margin: 10px;
-  padding: 10px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
-  color: #4d5d77;
+  color: #72819a;
 `;
 
-export const NavBrand = styled.div`
+export const NavBrand = styled.img`
   margin: 10px;
-  img {
-    height: 55px;
-    width: auto;
-  }
+  height: 70px;
+  width: auto;
 `;
