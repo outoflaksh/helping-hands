@@ -1,11 +1,13 @@
-import { FormContainer } from "../../components/styles/Form.styled";
+import { Page, Flex } from "../../components/styles/Utility.styled";
 import LoginForm from "../../components/LoginForm";
 import level from "../../utils/authLevel";
 function Login() {
   return (
-    <FormContainer>
-      <LoginForm level={level.worker} />
-    </FormContainer>
+    <Page>
+      <Flex align="center" justify="center">
+        <LoginForm level={level.worker} />
+      </Flex>
+    </Page>
   );
 }
 

@@ -1,8 +1,14 @@
 import { useRef, useState } from "react";
-import { FormContent, FormGroup, FormHeader } from "./styles/Form.styled.jsx";
+import {
+  FormContainer,
+  FormContent,
+  FormGroup,
+  FormHeader,
+} from "./styles/Form.styled.jsx";
 import { useAuth } from "../contexts/AuthContext";
+import { Flex } from "./styles/Utility.styled.jsx";
 
-function RegisterationForm({ level }) {
+function LoginForm({ level }) {
   //level: worker/client
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -22,26 +28,38 @@ function RegisterationForm({ level }) {
   }
 
   return (
-    <>
-      <FormHeader>{level}</FormHeader>
-      <FormContent>
-        <div>{error}</div>
-        <form onSubmit={handleSubmit}>
-          <FormGroup>
-            <label htmlFor="email">email</label>
-            <input type="email" name="email" ref={emailRef} />
-          </FormGroup>
-          <FormGroup>
-            <label htmlFor="password">password</label>
-            <input type="password" name="password" ref={passwordRef} />
-          </FormGroup>
-          <FormGroup>
-            <input type="submit" value="login" disabled={loading} />
-          </FormGroup>
-        </form>
-      </FormContent>
-    </>
+    <FormContainer>
+      <Flex direction="column" justify="center" align="center">
+        <FormHeader>
+          <h1>Welcome back! Sign in here</h1>
+        </FormHeader>
+        <FormContent>
+          <div>{error}</div>
+          <form onSubmit={handleSubmit}>
+            <FormGroup>
+              <input
+                type="email"
+                name="email"
+                ref={emailRef}
+                placeholder="Your email"
+              />
+            </FormGroup>
+            <FormGroup>
+              <input
+                type="password"
+                name="password"
+                ref={passwordRef}
+                placeholder="Your password"
+              />
+            </FormGroup>
+            <FormGroup>
+              <input type="submit" value="login" disabled={loading} />
+            </FormGroup>
+          </form>
+        </FormContent>
+      </Flex>
+    </FormContainer>
   );
 }
 
-export default RegisterationForm;
+export default LoginForm;

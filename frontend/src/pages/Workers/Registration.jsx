@@ -1,11 +1,11 @@
 import RegisterationForm from "../../components/RegisterationForm";
-import { FormContainer } from "../../components/styles/Form.styled";
+import { Page } from "../../components/styles/Utility.styled";
 import level from "../../utils/authLevel";
 function Registeration() {
   return (
-    <FormContainer>
+    <Page>
       <RegisterationForm level={level.worker} />
-    </FormContainer>
+    </Page>
   );
 }
 
