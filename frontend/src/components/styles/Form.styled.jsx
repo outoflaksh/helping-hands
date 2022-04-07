@@ -2,17 +2,18 @@ import styled from "styled-components";
 
 export const FormGroup = styled.div`
   display: flex;
-  flex-direction: column;
   margin-top: 15px;
+  width: 100%;
 
   input {
     padding: 15px;
     background-color: #43ffcb;
     border-style: none;
     border-radius: 3px;
+    margin: 5px;
+    flex: 1;
   }
 `;
-
 
 export const FormHeader = styled.div`
   width: 100%;
@@ -37,7 +38,7 @@ export const FormContent = styled.div`
 `;
 
 export const FormWrapper = styled.div`
-  width:30%;
+  max-width: 60%;
   min-width: 300px;
   /* height:70%; */
 `;
@@ -50,6 +51,7 @@ export const SubmitButton = styled.button`
   color: #4d5d77;
   font-weight: 800;
   font-size: 1.2rem;
+  margin: 5px;
   cursor: pointer;
 
   &:hover {
