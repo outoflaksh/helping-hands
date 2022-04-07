@@ -38,6 +38,7 @@ export const FormContent = styled.div`
 
 export const FormWrapper = styled.div`
   width:30%;
+  min-width: 300px;
   /* height:70%; */
 `;
 
