@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.div`
-
   & > div {
     z-index: 10;
   }
@@ -23,14 +22,13 @@ export const HeroContainer = styled.div`
     font-size: 1.65rem;
     font-weight: 400;
     color: #72819a;
+    margin: 15px 0;
 
     span {
       color: #c07b8c;
     }
   }
 `;
-
-
 
 export const HeroImage = styled.img`
   height: 35rem;
