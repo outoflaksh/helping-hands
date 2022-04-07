@@ -1,4 +1,5 @@
-import { Card, Button } from "./styles/Job.styled";
+import { Card } from "./styles/Job.styled";
+import { Button } from "./styles/Common.styled";
 
 const JobCard = ({ job }) => {
   return (

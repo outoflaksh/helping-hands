@@ -13,9 +13,6 @@ export const FormGroup = styled.div`
   }
 `;
 
-export const FormContainer = styled.div`
-  width: 55%;
-`;
 
 export const FormHeader = styled.div`
   width: 100%;
@@ -34,6 +31,28 @@ export const FormContent = styled.div`
   padding: 25px;
   border-radius: 25px;
   background-color: #b7ffeb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 `;
 
-export const SubmitButton = styled.button``;
+export const FormWrapper = styled.div`
+  width:30%;
+  /* height:70%; */
+`;
+
+export const SubmitButton = styled.button`
+  background: #43ffcb;
+  border-style: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  color: #4d5d77;
+  font-weight: 800;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+`;

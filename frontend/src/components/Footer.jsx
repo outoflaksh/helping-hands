@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import AuthContext from "../contexts/AuthContext";
-import { FooterWrapper } from "./styles/Footer.styled.jsx";
+import { Button } from "./styles/Common.styled";
+import { FooterItems, FooterWrapper } from "./styles/Footer.styled.jsx";
 
 function Footer() {
   const { currentUser, logout } = useContext(AuthContext);
-  console.log(currentUser);
   const [loading, setLoading] = useState(false);
   async function handleLogOut() {
     setLoading(true);
@@ -13,12 +13,17 @@ function Footer() {
   }
   return (
     <FooterWrapper>
-      {(currentUser && currentUser.email) || "not signed in"}
-      {currentUser ? (
-        <button onClick={handleLogOut} disabled={loading}>
-          Logout
-        </button>
-      ) : undefined}
+      <FooterItems>
+        {(currentUser && currentUser.email) || "Not Signed In"}
+        {currentUser ? (
+          <>
+            <div style={{height:"0.5rem"}}/>
+            <Button onClick={handleLogOut} disabled={loading}>
+              Logout
+            </Button>
+          </>
+        ) : undefined}
+      </FooterItems>
     </FooterWrapper>
   );
 }
