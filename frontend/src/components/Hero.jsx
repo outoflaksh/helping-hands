@@ -1,12 +1,10 @@
-import {
-  HeroContainer,
-  Button,
-  HeroImage,
-} from "../components/styles/Hero.styled";
+import { HeroContainer, HeroImage } from "../components/styles/Hero.styled";
+import { Button } from "./styles/Common.styled";
 import { NavLink } from "react-router-dom";
 import { Flex, Page } from "../components/styles/Utility.styled";
 
 const Hero = () => {
+  const { currentUser } = useContext(AuthContext);
   return (
     <Page>
       <HeroContainer>

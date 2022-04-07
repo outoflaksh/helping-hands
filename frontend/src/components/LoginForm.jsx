@@ -4,12 +4,13 @@ import {
   FormContent,
   FormGroup,
   FormHeader,
+  FormWrapper,
+  SubmitButton,
 } from "./styles/Form.styled.jsx";
 import { useAuth } from "../contexts/AuthContext";
 import { Flex } from "./styles/Utility.styled.jsx";
 
-function LoginForm({ level }) {
-  //level: worker/client
+function LoginForm() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login } = useAuth();
@@ -28,37 +29,39 @@ function LoginForm({ level }) {
   }
 
   return (
-    <FormContainer>
-      <Flex direction="column" justify="center" align="center">
+    <FormWrapper>
+      <FormContent>
         <FormHeader>
           <h1>Welcome back! Sign in here</h1>
         </FormHeader>
-        <FormContent>
-          <div>{error}</div>
-          <form onSubmit={handleSubmit}>
-            <FormGroup>
-              <input
-                type="email"
-                name="email"
-                ref={emailRef}
-                placeholder="Your email"
-              />
-            </FormGroup>
-            <FormGroup>
-              <input
-                type="password"
-                name="password"
-                ref={passwordRef}
-                placeholder="Your password"
-              />
-            </FormGroup>
-            <FormGroup>
-              <input type="submit" value="login" disabled={loading} />
-            </FormGroup>
-          </form>
-        </FormContent>
-      </Flex>
-    </FormContainer>
+        <div>{error}</div>
+        <form onSubmit={handleSubmit}>
+          <FormGroup>
+            <input
+              type="email"
+              name="email"
+              ref={emailRef}
+              placeholder="Your email"
+            />
+          </FormGroup>
+          <FormGroup>
+            <input
+              type="password"
+              name="password"
+              ref={passwordRef}
+              placeholder="Your password"
+            />
+          </FormGroup>
+          <FormGroup>
+            <SubmitButton type="submit" value="login" disabled={loading}>
+              {
+                loading?"loading":"Sign In"
+              }
+            </SubmitButton>
+          </FormGroup>
+        </form>
+      </FormContent>
+    </FormWrapper>
   );
 }
 

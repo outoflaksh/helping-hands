@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
-import { FormContent, FormGroup, FormHeader } from "./styles/Form.styled";
+import { FormContent, FormGroup, FormHeader, FormWrapper, SubmitButton } from "./styles/Form.styled";
 import { useAuth } from "../contexts/AuthContext";
 
-function RegisterationForm({ level }) {
+function RegisterationForm() {
   //level: worker/client
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -28,31 +28,37 @@ function RegisterationForm({ level }) {
 
   return (
     <>
-      <FormHeader>{level}</FormHeader>
-      <FormContent>
-        <div>{error}</div>
-        <form onSubmit={handleSubmit}>
-          <FormGroup>
-            <label htmlFor="email">email</label>
-            <input type="email" name="email" ref={emailRef} />
-          </FormGroup>
-          <FormGroup>
-            <label htmlFor="password">password</label>
-            <input type="password" name="password" ref={passwordRef} />
-          </FormGroup>
-          <FormGroup>
-            <label htmlFor="confirm-password">confirm password</label>
-            <input
-              type="password"
-              name="confirm-password"
-              ref={confirmPasswordRef}
-            />
-          </FormGroup>
-          <FormGroup>
-            <input type="submit" value="register" disabled={loading} />
-          </FormGroup>
-        </form>
-      </FormContent>
+      <FormWrapper>
+        <FormContent>
+          <FormHeader>
+            <h1>Register To Experience</h1>
+          </FormHeader>
+          <div>{error}</div>
+          <form onSubmit={handleSubmit}>
+            <FormGroup>
+              <input type="email" name="email" ref={emailRef} placeholder="Your Email"/>
+            </FormGroup>
+            <FormGroup>
+              <input type="password" name="password" ref={passwordRef} placeholder="Your Password"/>
+            </FormGroup>
+            <FormGroup>
+              <input
+                type="password"
+                name="confirm-password"
+                ref={confirmPasswordRef}
+                placeholder="Confirm Your Password"
+              />
+            </FormGroup>
+            <FormGroup>
+              <SubmitButton type="submit" value="register" disabled={loading}>
+                {
+                  loading?"Loading":"Register"
+                }
+              </SubmitButton>
+            </FormGroup>
+          </form>
+        </FormContent>
+      </FormWrapper>
     </>
   );
 }

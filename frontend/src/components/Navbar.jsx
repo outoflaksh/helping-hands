@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import AuthContext from "../contexts/AuthContext";
 import { Nav, NavList, NavItem, NavBrand } from "./styles/Nav.styled";
 
 const Navbar = () => {
+  const { currentUser } = useContext(AuthContext);
   return (
     <Nav>
       <NavLink to="/">
@@ -11,15 +14,21 @@ const Navbar = () => {
         <NavItem>
           <NavLink to="/jobs">Jobs</NavLink>
         </NavItem>
-        <NavItem>
-          <NavLink to="/auth/register">Register</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/auth/login">Login</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/">Events</NavLink>
-        </NavItem>
+        {
+          currentUser ?
+            <NavItem>
+              <NavLink to="/profile">Profile</NavLink>
+            </NavItem>
+            :
+            <>
+              <NavItem>
+                <NavLink to="/auth/register">Register</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="/auth/login">Login</NavLink>
+              </NavItem>
+            </>
+        }
       </NavList>
     </Nav>
   );

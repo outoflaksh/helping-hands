@@ -1,11 +1,8 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.div`
-  min-height: 100vh;
-  width: 100%;
 
   & > div {
-    margin: auto 12%;
     z-index: 10;
   }
 
@@ -33,22 +30,7 @@ export const HeroContainer = styled.div`
   }
 `;
 
-export const Button = styled.button`
-  background: #43ffcb;
-  border-style: none;
-  padding: 15px 30px;
-  border-radius: 5px;
-  color: #4d5d77;
-  font-weight: 800;
-  font-size: 1.4rem;
-  margin-top: 30px;
-  cursor: pointer;
 
-  &:hover {
-    opacity: 0.9;
-    transform: scale(0.98);
-  }
-`;
 
 export const HeroImage = styled.img`
   height: 35rem;
