@@ -17,7 +17,7 @@ const Navbar = () => {
         {
           currentUser ?
             <NavItem>
-              <NavLink to="">Profile</NavLink>
+              <NavLink to="/profile">Profile</NavLink>
             </NavItem>
             :
             <>
@@ -29,10 +29,6 @@ const Navbar = () => {
               </NavItem>
             </>
         }
-
-        {/* <NavItem>
-          <NavLink to="/">Events</NavLink>
-        </NavItem> */}
       </NavList>
     </Nav>
   );
