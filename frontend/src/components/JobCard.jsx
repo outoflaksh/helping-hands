@@ -5,14 +5,14 @@ const JobCard = ({ job }) => {
   return (
     <Card>
       <h1>
-        {job.type} job - {job.location}
+        {job.title} job - {job.location}
       </h1>
-      <h2>Positions left: {job.positions}</h2>
+      <h2>Positions left: {job.positions||5}</h2>
       <h2>
-        <span>Dates: 1/1/22 to 1/2/22</span>
+        <span>Dates: {job.dates}</span>
       </h2>
       <h3>
-        Ph: {job.phone}; Addr: {job.address}
+        Ph: {job.contactNumber}; Addr: {job.jobAddress}
       </h3>
       <Button>Apply</Button>
     </Card>

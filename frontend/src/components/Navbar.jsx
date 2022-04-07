@@ -1,10 +1,40 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
 import { Nav, NavList, NavItem, NavBrand } from "./styles/Nav.styled";
+import { FireStoreDB } from "../firebase";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
+  const usersCollectionRef = collection(FireStoreDB, 'users');
+  const [userData, setUserData] = useState();
+  useEffect(() => {
+    const checkDetails = async () => {
+      const userDocs = await getDocs(usersCollectionRef);
+      setUserData(
+        () => {
+          let userData;
+          for (let doc of userDocs.docs) {
+            let docData = doc.data();
+            if (docData.uid && docData.uid == currentUser.uid) {
+              userData = docData;
+            }
+          }
+          return userData;
+        }
+      );
+    };
+    if (currentUser)
+      checkDetails();
+  }, [currentUser]);
   return (
     <Nav>
       <NavLink to="/">
@@ -16,9 +46,18 @@ const Navbar = () => {
         </NavItem>
         {
           currentUser ?
-            <NavItem>
-              <NavLink to="/profile">Profile</NavLink>
-            </NavItem>
+            <>
+              <NavItem>
+                <NavLink to="/profile">Profile</NavLink>
+              </NavItem>
+              {
+                userData && userData.level == "client" ?
+                  <NavItem>
+                    <NavLink to="/jobs/new">Post Job</NavLink>
+                  </NavItem>
+                  : undefined
+              }
+            </>
             :
             <>
               <NavItem>
@@ -27,6 +66,8 @@ const Navbar = () => {
               <NavItem>
                 <NavLink to="/auth/login">Login</NavLink>
               </NavItem>
+
+
             </>
         }
       </NavList>
