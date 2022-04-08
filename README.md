@@ -11,9 +11,9 @@
 
   <p align="center">
     <br />
-    <a href="https://github.com/outoflaksh/nutshell/issues">Report Bug</a>
+    <a href="https://github.com/outoflaksh/helping-hands/issues">Report Bug</a>
     ·
-    <a href="https://github.com/outoflaksh/nutshell/issues">Request Feature</a>
+    <a href="https://github.com/outoflaksh/helping-hands/issues">Request Feature</a>
   </p>
 </div>
 
