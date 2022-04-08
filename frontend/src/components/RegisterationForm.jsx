@@ -1,8 +1,14 @@
 import { useRef, useState } from "react";
-import { FormContent, FormGroup, FormHeader, FormWrapper, SubmitButton } from "./styles/Form.styled";
+import {
+  FormContent,
+  FormGroup,
+  FormHeader,
+  FormWrapper,
+  SubmitButton,
+} from "./styles/Form.styled";
 import { useAuth } from "../contexts/AuthContext";
 
-function RegisterationForm() {
+function RegistrationForm() {
   //level: worker/client
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -36,10 +42,20 @@ function RegisterationForm() {
           <div>{error}</div>
           <form onSubmit={handleSubmit}>
             <FormGroup>
-              <input type="email" name="email" ref={emailRef} placeholder="Your Email"/>
+              <input
+                type="email"
+                name="email"
+                ref={emailRef}
+                placeholder="Your Email"
+              />
             </FormGroup>
             <FormGroup>
-              <input type="password" name="password" ref={passwordRef} placeholder="Your Password"/>
+              <input
+                type="password"
+                name="password"
+                ref={passwordRef}
+                placeholder="Your Password"
+              />
             </FormGroup>
             <FormGroup>
               <input
@@ -51,9 +67,7 @@ function RegisterationForm() {
             </FormGroup>
             <FormGroup>
               <SubmitButton type="submit" value="register" disabled={loading}>
-                {
-                  loading?"Loading":"Register"
-                }
+                {loading ? "Loading" : "Register"}
               </SubmitButton>
             </FormGroup>
           </form>
@@ -63,4 +77,4 @@ function RegisterationForm() {
   );
 }
 
-export default RegisterationForm;
+export default RegistrationForm;

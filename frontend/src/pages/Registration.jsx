@@ -1,13 +1,11 @@
-import RegisterationForm from "../components/RegisterationForm";
+import RegistrationForm from "../components/RegisterationForm";
 import { Flex, Page } from "../components/styles/Utility.styled";
-function Registeration() {
+function Registration() {
   return (
     <Page>
-      <RegisterationForm />
+      <RegistrationForm />
     </Page>
-
-
   );
 }
 
-export default Registeration;
+export default Registration;

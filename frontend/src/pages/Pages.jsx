@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Jobs from "./Jobs";
-import Registeration from "./Registration";
+import Registration from "./Registration";
 import Login from "./Login";
 import NotFound from "./NotFound";
 import Profile from "./profile";
@@ -15,7 +15,7 @@ const Pages = () => {
         <Route path="new" element={<PostJob />} />
       </Route>
       <Route path="auth">
-        <Route path="register" element={<Registeration />} />
+        <Route path="register" element={<Registration />} />
         <Route path="login" element={<Login />} />
       </Route>
       <Route path="profile" element={<Profile />} />
