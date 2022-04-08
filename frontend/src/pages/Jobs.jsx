@@ -9,7 +9,7 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 // const jobs = [
 //   {
@@ -43,21 +43,22 @@ import { useState,useEffect } from "react";
 // ];
 
 const Jobs = () => {
-  const jobsCollectionRef = collection(FireStoreDB, 'jobs');
+  const jobsCollectionRef = collection(FireStoreDB, "jobs");
   const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true);
     const getJobs = async () => {
-      const jobsDocs= await getDocs(jobsCollectionRef);
-      setJobs(
-        () => {
-          let jobs = [];
-          for(let doc of jobsDocs.docs){
-            let jobData = doc.data();
-            jobs.push(jobData);
-          }
-          return jobs;
+      const jobsDocs = await getDocs(jobsCollectionRef);
+      setJobs(() => {
+        let jobs = [];
+        for (let doc of jobsDocs.docs) {
+          let jobData = doc.data();
+          jobs.push(jobData);
         }
-      );
+        return jobs;
+      });
+      setLoading(false);
     };
     getJobs();
   }, []);
@@ -66,9 +67,11 @@ const Jobs = () => {
       <h1 style={{ fontWeight: 400, fontSize: "1.8rem", color: "#009C71" }}>
         Recent jobs:
       </h1>
-      {jobs.map((job, idx) => (
-        <JobCard job={job} key={idx} />
-      ))}
+      {loading ? (
+        <p>Fetching jobs...</p>
+      ) : (
+        jobs.map((job, idx) => <JobCard job={job} key={idx} />)
+      )}
     </Wrapper>
   );
 };
