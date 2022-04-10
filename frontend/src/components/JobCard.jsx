@@ -5,9 +5,9 @@ const JobCard = ({ job }) => {
   return (
     <Card>
       <h1>
-        {job.title} job - {job.location}
+        {job.jobTitle} job - {job.jobLocation}
       </h1>
-      <h2>Positions left: {job.positions||5}</h2>
+      <h2>Positions left: {job.positions || 5}</h2>
       <h2>
         <span>Dates: {job.dates}</span>
       </h2>

@@ -13,6 +13,7 @@ import { useAuth } from "../contexts/AuthContext";
 import ProfileForm from "../components/ProfileForm";
 import { SubmitButton } from "../components/styles/Form.styled";
 import { NavLink } from "react-router-dom";
+import JobCard from "../components/JobCard";
 
 const Profile = () => {
   const usersCollectionRef = collection(FireStoreDB, "users");
@@ -37,16 +38,38 @@ const Profile = () => {
     console.log(currentUser);
   }, [currentUser, submitting]);
 
+  // jobs:
+  const jobsCollectionRef = collection(FireStoreDB, "jobs");
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(true);
+    const getJobs = async () => {
+      const jobsDocs = await getDocs(jobsCollectionRef);
+      setJobs(() => {
+        let jobs = [];
+        for (let doc of jobsDocs.docs) {
+          let jobData = doc.data();
+          jobs.push(jobData);
+        }
+        return jobs;
+      });
+      setLoading(false);
+    };
+    getJobs();
+  }, []);
   return (
     <Page>
       {userData ? (
         <>
           <div>
-            <h1>Welcome, {userData.name}!</h1>
+            <h1>Welcome, {userData.displayName}!</h1>
             {userData.level === "client" ? (
-              <SubmitButton>
-                <NavLink to="/jobs/new">Post a new job</NavLink>
-              </SubmitButton>
+              <div>
+                <SubmitButton>
+                  <NavLink to="/jobs/new">Post a new job</NavLink>
+                </SubmitButton>
+              </div>
             ) : (
               <SubmitButton>
                 <NavLink to="/jobs">Look for jobs</NavLink>
